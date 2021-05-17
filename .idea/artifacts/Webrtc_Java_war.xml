@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="Webrtc_Java:war">
+    <output-path>$PROJECT_DIR$/out/artifacts/webrtc_war</output-path>
+    <root id="archive" name="webrtc.war">
+      <element id="artifact" artifact-name="Webrtc_Java:war exploded" />
+    </root>
+  </artifact>
+</component>
