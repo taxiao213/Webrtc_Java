@@ -1,5 +1,6 @@
 package com.demo;
 
+import com.demo.model.Model;
 import com.google.gson.Gson;
 import jakarta.websocket.OnClose;
 import jakarta.websocket.OnError;
@@ -75,8 +76,8 @@ public class WebSocketServer {
     public void onMessage(String params, Session session) {
         //获取服务端到客户端的通道
         WebSocketServer myWebSocket = WebSocketMapUtil.get(session.getId());
-        log.info("收到来自" + session.getId() + "的消息" + params);
         String result = "收到来自" + session.getId() + "的消息" + params;
+        log.info("收到来自" + session.getId() + "的消息" + params);
         //返回消息给Web Socket客户端（浏览器）
 //        myWebSocket.sendMessage(1, "成功", result);
         if (!StringUtils.isEmpty(params)) {

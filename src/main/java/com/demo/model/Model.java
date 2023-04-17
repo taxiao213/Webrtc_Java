@@ -1,4 +1,6 @@
-package com.demo;
+package com.demo.model;
+
+import com.demo.SessionDescription;
 
 /**
  * Created by taxiao on 2019/8/14
