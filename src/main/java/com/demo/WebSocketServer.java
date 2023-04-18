@@ -1,12 +1,19 @@
 package com.demo;
 
+import com.demo.model.Model;
 import com.google.gson.Gson;
+import jakarta.websocket.OnClose;
+import jakarta.websocket.OnError;
+import jakarta.websocket.OnMessage;
+import jakarta.websocket.OnOpen;
+import jakarta.websocket.Session;
+import jakarta.websocket.server.ServerEndpoint;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 
-import javax.websocket.*;
-import javax.websocket.server.ServerEndpoint;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -20,9 +27,12 @@ import java.util.Set;
  * Github:https://github.com/taxiao213
  * 微信公众号:他晓
  */
-@ServerEndpoint(value = "/websocket")
+@ServerEndpoint(value = "/webrtc/websocket")
 @Component
 public class WebSocketServer {
+
+    private static final Logger log = LoggerFactory.getLogger(WebSocketServer.class);
+
 
     private Session session;
 
@@ -32,7 +42,7 @@ public class WebSocketServer {
     @OnOpen
     public void onOpen(Session session) {
         this.session = session;
-        System.out.println("onOpen" + session.getId());
+        log.info("onOpen" + session.getId());
         WebSocketMapUtil.put(session.getId(), this);
     }
 
@@ -54,7 +64,7 @@ public class WebSocketServer {
                 iterator.remove();
             }
         }
-        System.out.println("====== onClose:" + session.getId() + " ======");
+        log.info("====== onClose:" + session.getId() + " ======");
     }
 
 
@@ -66,8 +76,8 @@ public class WebSocketServer {
     public void onMessage(String params, Session session) {
         //获取服务端到客户端的通道
         WebSocketServer myWebSocket = WebSocketMapUtil.get(session.getId());
-        System.out.println("收到来自" + session.getId() + "的消息" + params);
         String result = "收到来自" + session.getId() + "的消息" + params;
+        log.info("收到来自" + session.getId() + "的消息" + params);
         //返回消息给Web Socket客户端（浏览器）
 //        myWebSocket.sendMessage(1, "成功", result);
         if (!StringUtils.isEmpty(params)) {
@@ -97,7 +107,7 @@ public class WebSocketServer {
                     }
                 }
             } catch (Exception e) {
-
+                log.error("Exception{}", e);
             }
         }
     }
@@ -108,8 +118,7 @@ public class WebSocketServer {
 
     @OnError
     public void onError(Session session, Throwable error) {
-        System.out.println(session.getId() + "连接发生错误" + error.getMessage());
-        error.printStackTrace();
+        log.error(session.getId() + "连接发生错误" + error.getMessage(),error);
     }
 
 
@@ -125,7 +134,7 @@ public class WebSocketServer {
         try {
             this.session.getBasicRemote().sendText(new Gson().toJson(message));
         } catch (Exception e) {
-
+            log.error("Error sending message{}", e.getMessage(),e);
         }
     }
 
@@ -141,7 +150,7 @@ public class WebSocketServer {
         Model test = new Model();
         test.setId(Constant.REGISTER_RESPONSE);
         if (StringUtils.isEmpty(sessionFrom)) {
-            ClientMapUtil.webSocketMap.put(from, myWebSocket.session.getId());
+            ClientMapUtil.put(from, myWebSocket.session.getId());
             test.setIsSucceed(Constant.RESPONSE_SUCCEED);
         } else {
             test.setIsSucceed(Constant.RESPONSE_FAILURE);

@@ -45,7 +45,7 @@ Jdk 1.8.0_271
 
 
 
-![https://github.com/taxiao213/Webrtc_Java/raw/master/image/tomcat_04.png](https://github.com/taxiao213/Webrtc_Java/raw/master/image/tomcat_04.png)
+![image/tomcat_04.png](image/tomcat_04.png)
 
 
 
@@ -53,13 +53,13 @@ Jdk 1.8.0_271
 
 
 
-![https://github.com/taxiao213/Webrtc_Java/raw/master/image/tomcat_05.png](https://github.com/taxiao213/Webrtc_Java/raw/master/image/tomcat_05.png)
+![/image/tomcat_05.png](image/tomcat_05.png)
 
 ###### 1.2 在线测试
 
 
 
-![https://github.com/taxiao213/Webrtc_Java/raw/master/image/tomcat_06.png](https://github.com/taxiao213/Webrtc_Java/raw/master/image/tomcat_06.png)
+![image/tomcat_06.png](image/tomcat_06.png)
 
 
 
@@ -67,7 +67,7 @@ Jdk 1.8.0_271
 
 
 
-![https://github.com/taxiao213/Webrtc_Java/raw/master/image/tomcat_07.png](https://github.com/taxiao213/Webrtc_Java/raw/master/image/tomcat_07.png)
+![image/tomcat_07.png](image/tomcat_07.png)
 
 
 
@@ -79,15 +79,18 @@ Jdk 1.8.0_271
 
 
 
-![https://github.com/taxiao213/Webrtc_Java/raw/master/image/tomcat_03.png](https://github.com/taxiao213/Webrtc_Java/raw/master/image/tomcat_03.png)
+![image/tomcat_03.png](image/tomcat_03.png)
 
 ###### 2.2 启动 tomcat 
 
-![https://github.com/taxiao213/Webrtc_Java/raw/master/image/tomcat_01.png](https://github.com/taxiao213/Webrtc_Java/raw/master/image/tomcat_01.png)
+![image/tomcat_01.png](image/tomcat_01.png)
 
 
+http://coolaf.com/tool/chattest
 
-![https://github.com/taxiao213/Webrtc_Java/raw/master/image/tomcat_02.png](https://github.com/taxiao213/Webrtc_Java/raw/master/image/tomcat_02.png)
+![img.png](image/img.png)
+
+![image/tomcat_02.png](image/tomcat_02.png)
 
  
 
